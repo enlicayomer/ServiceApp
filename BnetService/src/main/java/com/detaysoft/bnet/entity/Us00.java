@@ -9,9 +9,15 @@ import com.detaysoft.bnet.entity.id.Us00Id;
  * Auto Generated Class
  */
 @Entity
+@Table(name="[/BNT/US00]", schema="SAPSR3")
 @IdClass(Us00Id.class)
 public class Us00 implements Serializable {
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="USID")
+	private String usid;
+
 	@Id
 	@Column(name="CLID")
 	private String clid;
@@ -59,11 +65,6 @@ public class Us00 implements Serializable {
 
 	@Column(name="NOTE")
 	private String note;
-
-	
-	@Id
-	@Column(name="USID")
-	private String usid;
 
 	@Column(name="USNM")
 	private String usnm;

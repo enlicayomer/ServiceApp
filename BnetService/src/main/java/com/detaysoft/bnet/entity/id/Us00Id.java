@@ -6,11 +6,18 @@ public class Us00Id implements Serializable{
 	
 	public Us00Id() {}
 	
+	String usid;
 	String clid;
 	String bpid;
 	String syid;
 	
 	
+	public String getUsid() {
+		return usid;
+	}
+	public void setUsid(String usid) {
+		this.usid = usid;
+	}
 	public String getClid() {
 		return clid;
 	}
