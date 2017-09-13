@@ -1,0 +1,111 @@
+book detail
+
+<div class="container">
+<page-header title="{{bdc.book.name}}"></page-header>
+
+	
+	<section class="tab" data-ng-controller="PanelController as panel">
+		<ul class="nav nav-pills">
+			<li data-ng-class="{active:panel.isSelected(1)}">
+			<a href=""	data-ng-click="panel.selectTab(1)"> Details </a></li>
+			<li data-ng-class="{active:panel.isSelected(2)}">
+			<a href=""	data-ng-click="panel.selectTab(2)"> Comments </a></li>
+		</ul>
+
+
+		<div class="panel" ng-show="panel.isSelected(1)">
+			
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td>Title:</td>
+					<td>{{bdc.book.title}}</td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td>{{bdc.book.price}}</td>
+				</tr>
+				<tr>
+					<td>PublishDate:</td>
+					<td>{{bdc.book.publishDate}}</td>
+				</tr>
+				<tr>
+					<td>Details:</td>
+					<td>{{bdc.book.description}}</td>
+				</tr>
+				<tr>
+					<td>Score:</td>
+					<td>{{bdc.book.score}}</td>
+				</tr>
+				<tr>
+					<td>Sales Amount:</td>
+					<td>{{bdc.book.salesAmount}}</td>
+				</tr>
+				<tr>
+					<td>Category:</td>
+					<td>{{bdc.book.category.name}}</td>
+				</tr>
+				<tr>
+					<td>Publisher:</td>
+					<td>{{bdc.book.publisher.name}}</td>
+				</tr>
+				<tr>
+					<td>Authors:</td>
+					<td>
+						<ul>
+						<li data-ng-repeat="author in bdc.book.authors">
+						{{author.name}}
+						</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="panel" ng-show="panel.isSelected(2)">
+			<h4>Reviews</h4>
+			<ul>
+
+				<li ng-repeat="comment in bdc.book.comments">
+					<blockquote>
+						<strong>{{comment.score}}</strong> {{comment.content}} <cite
+							class="clearfix">-{{comment.owner}}</cite>
+					</blockquote>
+				</li>
+			</ul>
+			<div class="row">
+				<div class="col-xs-6">
+					<form name="reviewForm"
+						ng-controller="ReviewController as reviewCtrl"
+						ng-submit="reviewCtrl.addReview(pdc.product)">
+						<blockquote>
+							<strong> {{reviewCtrl.review.stars}} Stars</strong>
+							{{reviewCtrl.review.text}} <cite class="clearfix">-{{reviewCtrl.review.author}}</cite>
+						</blockquote>
+						<!--  Review Form -->
+						<h4>Submit a Review</h4>
+						<fieldset class="form-group">
+							<select ng-model="reviewCtrl.review.stars" class="form-control"
+								ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+								<option value="">Rate the Product</option>
+							</select>
+						</fieldset>
+						<fieldset class="form-group">
+							<textarea ng-model="reviewCtrl.review.text" class="form-control"
+								placeholder="Write a short review of the product..."
+								title="Review"></textarea>
+						</fieldset>
+						<fieldset class="form-group">
+							<input ng-model="reviewCtrl.review.author" type="email"
+								class="form-control" placeholder="jimmyDean@example.org"
+								title="Email" />
+						</fieldset>
+						<fieldset class="form-group">
+							<input type="submit" class="btn btn-primary pull-right"
+								value="Submit Review" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</div>
