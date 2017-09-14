@@ -1,14 +1,20 @@
 package com.detaysoft.todo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -18,6 +24,8 @@ import com.detaysoft.project.entity.Pj01;
 @Entity
 @Table(name = "[/ATOM/PJ03]", schema = "SAPSR3")
 @IdClass(Pj03Key.class)
+@NamedEntityGraph(name = "Pj03.pj01",
+attributeNodes = @NamedAttributeNode("pj01"))
 public class Pj03 {
 	@Id
 	@Column(name = "CLID")
@@ -35,15 +43,15 @@ public class Pj03 {
 
 	
 	
+//	@Fetch(FetchMode.JOIN)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumns({
 	@JoinColumn(name="CLID",insertable=false,updatable=false),
 	@JoinColumn(name="PJID",insertable=false,updatable=false)
 })
-	@ManyToOne
 	private Pj01 pj01;
-	
-	
+
 	public Pj01 getPj01() {
 		return pj01;
 	}

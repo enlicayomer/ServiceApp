@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: bnetservice.todo
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: P1202_NB
+Built-By: omere
 Implementation-Vendor-Id: com.detaysoft
-Build-Jdk: 1.8.0_141
+Build-Jdk: 1.8.0_131
 Implementation-URL: http://projects.spring.io/spring-boot/bnetservice/
  bnetservice.todo/
 Created-By: Maven Integration for Eclipse

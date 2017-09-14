@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.detaysoft.todo.config.JsonFilter;
 import com.detaysoft.todo.entity.Pj03;
-import com.detaysoft.todo.repository.Pj03Repository;
+//import com.detaysoft.todo.repository.Pj03Repository;
 import com.detaysoft.todo.service.Pj03Service;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -44,13 +44,8 @@ public class ToDoServiceController {
 	}
 
 	@GetMapping("getToDoList")
-	@JsonFilter(keys = {"pj01", "tkid"})
-	public List<Pj03> getToDoList(Pageable pageable) throws URISyntaxException, JsonParseException, JsonMappingException, IOException {
-		URL url = this.getClass().getClassLoader().getResource("repos.json").toURI().toURL();
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        return objectMapper.readValue(url, List.class);
-//		return new ResponseEntity<Page<Pj03>>(pj03Service.findAll(pageable), HttpStatus.OK);
+	public ResponseEntity<List<Pj03>> getToDoList(Pageable pageable){
+	
+		return new ResponseEntity<List<Pj03>>(pj03Service.findAll(pageable), HttpStatus.OK);
 	}
 }
