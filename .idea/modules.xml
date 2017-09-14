@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bnetservice.iml" filepath="$PROJECT_DIR$/bnetservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bnetservice.core/bnetservice.core.iml" filepath="$PROJECT_DIR$/bnetservice.core/bnetservice.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bnetservice.todo/bnetservice.todo.iml" filepath="$PROJECT_DIR$/bnetservice.todo/bnetservice.todo.iml" />
+    </modules>
+  </component>
+</project>

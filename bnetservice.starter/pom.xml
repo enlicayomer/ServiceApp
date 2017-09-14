@@ -6,13 +6,20 @@
 		<artifactId>bnetservice</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>bnetservice.todo</artifactId>
-	
+	<artifactId>bnetservice.starter</artifactId>
+	<packaging>war</packaging>
+
 	<dependencies>
+		<dependency>
+			<groupId>com.detaysoft</groupId>
+			<artifactId>bnetservice.todo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>com.detaysoft</groupId>
 			<artifactId>bnetservice.core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	
 </project>
