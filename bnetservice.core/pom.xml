@@ -7,7 +7,6 @@
     <artifactId>bnetservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.detaysoft</groupId>
   <artifactId>bnetservice.core</artifactId>
   <name>bnetservice.core</name>
   <url>http://maven.apache.org</url>

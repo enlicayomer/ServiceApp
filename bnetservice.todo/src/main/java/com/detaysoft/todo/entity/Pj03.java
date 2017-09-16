@@ -1,5 +1,7 @@
 package com.detaysoft.todo.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,13 +22,19 @@ import org.hibernate.annotations.NotFoundAction;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import com.detaysoft.project.entity.Pj01;
+import com.detaysoft.todo.controller.ModelJsonFilters;
+import com.fasterxml.jackson.annotation.JsonFilter;
 
 @Entity
 @Table(name = "[/ATOM/PJ03]", schema = "SAPSR3")
 @IdClass(Pj03Key.class)
-@NamedEntityGraph(name = "Pj03.pj01",
-attributeNodes = @NamedAttributeNode("pj01"))
-public class Pj03 {
+//@NamedEntityGraph(name = "Pj03.pj01",
+//attributeNodes = @NamedAttributeNode("pj01"))
+@JsonFilter(ModelJsonFilters.SECTEUR_FILTER)
+public class Pj03 implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "CLID")
 	private String clid;
@@ -44,7 +52,7 @@ public class Pj03 {
 	
 	
 //	@Fetch(FetchMode.JOIN)
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumns({
 	@JoinColumn(name="CLID",insertable=false,updatable=false),
